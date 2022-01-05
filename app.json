@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Go-Cart",
+    "slug": "Go-Cart",
+    "plugins": [
+      [
+        "expo-ads-admob",
+        {
+          "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
+        }
+      ]
+    ],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package":"com.Sahil.GoCart",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-2287594817055137~5552311675"
+      }
+    },
+    "ios": {
+      "bundleIdentifier":"com.Sahil.GoCart",
+      "supportsTablet": true
+    }
+  }
+}
