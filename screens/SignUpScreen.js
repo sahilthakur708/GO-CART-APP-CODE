@@ -12,7 +12,6 @@ import {
 import db from '../config';
 import firebase from 'firebase';
 import Icon from '@expo/vector-icons/Feather';
-import { AdMobRewarded } from 'expo-ads-admob';
 
 export default class SignUpScreen extends Component {
   constructor() {
@@ -31,11 +30,7 @@ export default class SignUpScreen extends Component {
       secureTextEntry2: true,
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623'); // Test ID, Replace with your-admob-unit-id
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
+
   userSignUp = () => {
     if (
       this.state.emailId &&
@@ -264,7 +259,6 @@ export default class SignUpScreen extends Component {
                 onPress={() => {
                   if (this.state.password === this.state.confirmPassword) {
                     this.userSignUp();
-                    this.showRewardedAndroid();
                   } else {
                     Alert.alert('Invalid!', "Passwords don't match");
                   }
