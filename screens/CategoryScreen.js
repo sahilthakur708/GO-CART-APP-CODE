@@ -6,7 +6,6 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import { AdMobBanner, AdMobInterstitial } from 'expo-ads-admob';
 import db from '../config';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -19,13 +18,7 @@ export default class CategoryScreen extends React.Component {
       products: [],
     };
   }
-  showInterstitialAndroid = async () => {
-    await AdMobInterstitial.setAdUnitID(
-      'ca-app-pub-2287594817055137/3157016962'
-    );
-    await AdMobInterstitial.requestAdAsync();
-    await AdMobInterstitial.showAdAsync();
-  };
+
   getProducts = async () => {
     var category = this.props.route.params.category;
     this.setState({ products: [] });
@@ -88,13 +81,6 @@ export default class CategoryScreen extends React.Component {
           <Text style={{ alignSelf: 'center', marginTop: '50%' }}>
             Products in this category will appear here!!
           </Text>
-          <AdMobBanner
-              style={{ alignSelf: 'center', marginBottom: '2%' }}
-              bannerSize="full"
-              adUnitID="ca-app-pub-2287594817055137/2403404156"
-              onDidFailToReceiveAdWithError={this.bannerError}
-              onAdViewDidReceiveAd={this.bannerAdReceived}
-            />
         </View>
       );
     } else {
@@ -234,13 +220,6 @@ export default class CategoryScreen extends React.Component {
                 );
               })}
             </View>
-            <AdMobBanner
-              style={{ alignSelf: 'center', marginBottom: '1%' }}
-              bannerSize="full"
-              adUnitID="ca-app-pub-2287594817055137/2403404156"
-              onDidFailToReceiveAdWithError={this.bannerError}
-              onAdViewDidReceiveAd={this.bannerAdReceived}
-            />
           </ScrollView>
         </View>
       );
