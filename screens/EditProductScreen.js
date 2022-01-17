@@ -11,7 +11,6 @@ import {
 import firebase from 'firebase';
 import db from '../config';
 import { LinearGradient } from 'expo-linear-gradient';
-import { AdMobRewarded } from 'expo-ads-admob';
 import { Ionicons } from '@expo/vector-icons';
 
 export default class EditProductScreen extends React.Component {
@@ -36,11 +35,7 @@ export default class EditProductScreen extends React.Component {
       contact: '',
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623'); // Test ID, Replace with your-admob-unit-id
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
+ 
   getProduct = async () => {
     var temp = await db.collection('products').doc(this.state.id).get();
     this.setState({
@@ -347,7 +342,6 @@ export default class EditProductScreen extends React.Component {
               <TouchableOpacity
                 onPress={() => {
                   this.saveProducts();
-                  this.showRewardedAndroid();
                 }}
                 style={{
                   backgroundColor: '#E51F45',
