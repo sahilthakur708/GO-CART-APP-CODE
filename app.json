@@ -2,14 +2,6 @@
   "expo": {
     "name": "Go-Cart",
     "slug": "Go-Cart",
-    "plugins": [
-      [
-        "expo-ads-admob",
-        {
-          "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
-        }
-      ]
-    ],
     "platforms": [
       "ios",
       "android",
@@ -31,9 +23,6 @@
     ],
     "android": {
       "package":"com.Sahil.GoCart",
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-2287594817055137~5552311675"
-      }
     },
     "ios": {
       "bundleIdentifier":"com.Sahil.GoCart",
