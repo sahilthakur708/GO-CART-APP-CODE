@@ -14,7 +14,6 @@ import db from '../config';
 import * as ImagePicker from 'expo-image-picker';
 import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { AdMobRewarded } from 'expo-ads-admob';
 
 export default class ProfileScreen extends React.Component {
   constructor() {
@@ -33,11 +32,7 @@ export default class ProfileScreen extends React.Component {
       email: firebase.auth().currentUser.email,
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623');
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
+
   getProfile = async () => {
     var temp = await db
       .collection('users')
@@ -308,7 +303,6 @@ export default class ProfileScreen extends React.Component {
           <TouchableOpacity
             onPress={() => {
               this.onSubmit();
-              this.showRewardedAndroid();
             }}
             style={{
               backgroundColor: '#E51F45',
