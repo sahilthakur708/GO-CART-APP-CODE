@@ -19,7 +19,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { AdMobBanner, AdMobInterstitial, AdMobRewarded } from 'expo-ads-admob';
+
 
 export default class ProductsUploadingScreen extends React.Component {
   constructor() {
@@ -45,18 +45,7 @@ export default class ProductsUploadingScreen extends React.Component {
       contact: '',
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623');
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
-  showInterstitialAndroid = async () => {
-    await AdMobInterstitial.setAdUnitID(
-      'ca-app-pub-2287594817055137/3157016962'
-    );
-    await AdMobInterstitial.requestAdAsync();
-    await AdMobInterstitial.showAdAsync();
-  };
+  
   getProducts = async () => {
     this.setState({ products: [] });
     var resp = await db
@@ -79,7 +68,6 @@ export default class ProductsUploadingScreen extends React.Component {
 
   componentDidMount() {
     this.getProducts();
-    this.showInterstitialAndroid();
   }
 
   selectImage = async (path, number) => {
@@ -313,17 +301,6 @@ export default class ProductsUploadingScreen extends React.Component {
               <Entypo name="plus" size={35} color="white" />
             </View>
           </TouchableOpacity>
-          <AdMobBanner
-            style={{
-              alignSelf: 'center',
-              marginBottom: '1%',
-              marginTop: '20%',
-            }}
-            bannerSize="full"
-            adUnitID="ca-app-pub-2287594817055137/2403404156"
-            onDidFailToReceiveAdWithError={this.bannerError}
-            onAdViewDidReceiveAd={this.bannerAdReceived}
-          />
           <ScrollView>
             <Modal
               animationType="slide"
@@ -833,17 +810,6 @@ export default class ProductsUploadingScreen extends React.Component {
                 );
               })}
             </View>
-            <AdMobBanner
-              style={{
-                alignSelf: 'center',
-                marginBottom: '1%',
-                marginTop: '5%',
-              }}
-              bannerSize="full"
-              adUnitID="ca-app-pub-2287594817055137/2403404156"
-              onDidFailToReceiveAdWithError={this.bannerError}
-              onAdViewDidReceiveAd={this.bannerAdReceived}
-            />
           </ScrollView>
 
           <TouchableOpacity
@@ -1144,7 +1110,6 @@ export default class ProductsUploadingScreen extends React.Component {
                         } else {
                           this.addUserProducts();
                           this.getProducts();
-                          this.showRewardedAndroid();
                         }
                       }}
                       style={{
