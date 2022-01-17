@@ -9,7 +9,6 @@ import firebase from 'firebase';
 import db from '../config';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Entypo } from '@expo/vector-icons';
-import { AdMobInterstitial, AdMobRewarded } from 'expo-ads-admob';
 
 export default class SettingsScreen extends React.Component {
   constructor() {
@@ -21,18 +20,7 @@ export default class SettingsScreen extends React.Component {
       name: '',
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623');
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
-  showInterstitialAndroid = async () => {
-    await AdMobInterstitial.setAdUnitID(
-      'ca-app-pub-2287594817055137/3157016962'
-    );
-    await AdMobInterstitial.requestAdAsync();
-    await AdMobInterstitial.showAdAsync();
-  };
+ 
   getProfile = async () => {
     var temp = await db
       .collection('users')
@@ -48,7 +36,6 @@ export default class SettingsScreen extends React.Component {
   };
   componentDidMount = () => {
     this.getProfile();
-    this.showInterstitialAndroid();
   };
 
   render() {
@@ -272,7 +259,6 @@ export default class SettingsScreen extends React.Component {
             borderRadius: 12,
           }}
           onPress={() => {
-            this.showRewardedAndroid();
             this.props.navigation.navigate('LoginScreen');
             firebase.auth().signOut();
           }}>
