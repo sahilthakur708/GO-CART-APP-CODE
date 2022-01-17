@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { AdMobBanner } from 'expo-ads-admob';
 import firebase from 'firebase';
 import db from '../config';
 import { Octicons } from '@expo/vector-icons';
@@ -175,13 +174,6 @@ export default class HomeScreen extends Component {
             <Text style={{ alignSelf: 'center' }}>
               Sorry! We have no products available
             </Text>
-            <AdMobBanner
-            style={{ alignSelf: 'center',marginTop:'2%'}}
-            bannerSize="full"
-            adUnitID="ca-app-pub-2287594817055137/2403404156"
-            onDidFailToReceiveAdWithError={this.bannerError}
-            onAdViewDidReceiveAd={this.bannerAdReceived}
-          />
           </ScrollView>
         </View>
       );
@@ -407,21 +399,7 @@ export default class HomeScreen extends Component {
                 );
               })}
             </View>
-            <AdMobBanner
-            style={{ alignSelf: 'center'}}
-            bannerSize="full"
-            adUnitID="ca-app-pub-2287594817055137/2403404156"
-            onDidFailToReceiveAdWithError={this.bannerError}
-            onAdViewDidReceiveAd={this.bannerAdReceived}
-          />
           </ScrollView>
-          <AdMobBanner
-            style={{ alignSelf: 'center',marginTop:'2%'}}
-            bannerSize="full"
-            adUnitID="ca-app-pub-2287594817055137/2403404156"
-            onDidFailToReceiveAdWithError={this.bannerError}
-            onAdViewDidReceiveAd={this.bannerAdReceived}
-          />
         </View>
       );
     }
