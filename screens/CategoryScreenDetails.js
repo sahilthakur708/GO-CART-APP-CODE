@@ -16,7 +16,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { SliderBox } from 'react-native-image-slider-box';
-import { AdMobRewarded } from 'expo-ads-admob';
 
 export default class CategoryDetailsScreen extends React.Component {
   constructor(props) {
@@ -28,12 +27,6 @@ export default class CategoryDetailsScreen extends React.Component {
       renterContact: '',
     };
   }
-
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623'); // Test ID, Replace with your-admob-unit-id
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
 
   getProducts = async () => {
     var resp = await db.collection('products').doc(this.state.productId).get();
@@ -378,7 +371,6 @@ export default class CategoryDetailsScreen extends React.Component {
                   'Interest Sent Successfully!',
                   'you can check your interest in the interest Recieved/Sent for products screen.If the status is accepted then Contact Seller to deliver the product to your house'
                 );
-                this.showRewardedAndroid();
               } else {
                 Alert.alert('Invalid!', 'Please enter a valid price');
               }
