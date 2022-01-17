@@ -14,7 +14,7 @@ import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Entypo } from '@expo/vector-icons';
-import { AdMobBanner, AdMobRewarded } from 'expo-ads-admob';
+
 export default class InteresSentForProducts extends React.Component {
   constructor(props) {
     super(props);
@@ -22,11 +22,7 @@ export default class InteresSentForProducts extends React.Component {
       products: [],
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623'); // Test ID, Replace with your-admob-unit-id
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
+
   getProducts = async () => {
     this.setState({ products: [] });
     var resp = await db
@@ -43,7 +39,6 @@ export default class InteresSentForProducts extends React.Component {
   };
   componentDidMount = () => {
     this.getProducts();
-    this.showRewardedAndroid();
   };
   render() {
     if (this.state.products.length === 0) {
@@ -90,13 +85,6 @@ export default class InteresSentForProducts extends React.Component {
           <Text style={{ marginTop: '70%', marginLeft: '20%' }}>
             No interests sent for products
           </Text>
-          <AdMobBanner
-              style={{ alignSelf: 'center', marginBottom: '1%' }}
-              bannerSize="full"
-              adUnitID="ca-app-pub-2287594817055137/2403404156"
-              onDidFailToReceiveAdWithError={this.bannerError}
-              onAdViewDidReceiveAd={this.bannerAdReceived}
-            />
         </View>
       );
     } else {
@@ -318,13 +306,6 @@ export default class InteresSentForProducts extends React.Component {
                 </View>
               );
             })}
-            <AdMobBanner
-              style={{ alignSelf: 'center', marginBottom: '1%' }}
-              bannerSize="full"
-              adUnitID="ca-app-pub-2287594817055137/2403404156"
-              onDidFailToReceiveAdWithError={this.bannerError}
-              onAdViewDidReceiveAd={this.bannerAdReceived}
-            />
           </ScrollView>
         </View>
       );
