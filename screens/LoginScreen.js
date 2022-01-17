@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import Icon from '@expo/vector-icons/Feather';
 import firebase from 'firebase';
-import { AdMobRewarded } from 'expo-ads-admob';
 
 export default class LoginScreen extends Component {
   constructor() {
@@ -21,11 +20,7 @@ export default class LoginScreen extends Component {
       secureTextEntry: true,
     };
   }
-  showRewardedAndroid = async () => {
-    await AdMobRewarded.setAdUnitID('ca-app-pub-2287594817055137/8373684623');
-    await AdMobRewarded.requestAdAsync();
-    await AdMobRewarded.showAdAsync();
-  };
+
   changeSecureText = () => {
     this.setState({ secureTextEntry: !this.state.secureTextEntry });
   };
@@ -135,7 +130,6 @@ export default class LoginScreen extends Component {
           <TouchableOpacity
             onPress={() => {
               this.userLogin(this.state.emailId, this.state.password);
-              this.showRewardedAndroid();
             }}
             style={{
               backgroundColor: '#E51F45',
