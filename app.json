@@ -7,7 +7,8 @@
       "android",
       "web"
     ],
-    "version": "2.0.0",
+   
+    "version": "2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,7 +23,8 @@
       "**/*"
     ],
     "android": {
-      "package":"com.Sahil.GoCart"
+      "package":"com.Sahil.GoCart",
+      "versionCode":2
     },
     "ios": {
       "bundleIdentifier":"com.Sahil.GoCart",
