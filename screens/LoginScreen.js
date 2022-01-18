@@ -49,7 +49,7 @@ export default class LoginScreen extends Component {
           <Image
             source={require('../Images/logo.png')}
             style={{
-              width: '100%',
+              width: '70%',
               height: 260,
               alignSelf: 'center',
               marginTop: '30%',
@@ -60,7 +60,7 @@ export default class LoginScreen extends Component {
               fontSize: 22,
               fontWeight: 'bold',
               textAlign: 'center',
-              marginTop: -50,
+              marginTop: -40,
             }}>
             Login Now
           </Text>
